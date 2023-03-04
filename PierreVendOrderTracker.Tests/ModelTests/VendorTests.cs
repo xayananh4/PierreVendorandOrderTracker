@@ -41,7 +41,21 @@ namespace PierreVendOrderTracker.Tests
       string result = newVend.Description;
 
       //Assert
-      Assert.AreEqual( description, result);
+      Assert.AreEqual(description, result);
+    }
+    [TestMethod]
+    public void GetId_ReturnsVendorId_Int()
+    {
+      //Arrange
+      string name = "Test";
+      string description = "qwertyuiop";
+      Vendor newVendor = new Vendor(name, description);
+
+      //Act
+      int result = newVendor.Id;
+
+      //Assert
+      Assert.AreEqual(1, result);
     }
   }
 }
