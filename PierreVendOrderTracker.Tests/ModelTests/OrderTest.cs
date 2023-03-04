@@ -10,7 +10,7 @@ namespace PierreVendOrderTracker.Tests
   {
     public void Dispose()
     {
-      Vendor.ClearAll();
+      Order.ClearAll();
     }
     
     [TestMethod]
