@@ -11,7 +11,9 @@ namespace PierreVendOrderTracker.Tests
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
-      Order newOrder = new Order("test");
+      DateTime dt1 = new DateTime();
+      Order newOrder = new Order("starbucks", "desc", 1, dt1);
+
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
   }
