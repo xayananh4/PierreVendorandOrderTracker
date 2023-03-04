@@ -11,7 +11,7 @@ namespace PierreVendOrderTracker.Tests
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
-      Vendor newVendor = new Vendor("test");
+      Vendor newVendor = new Vendor("test", "qwerty");
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
 
@@ -41,7 +41,7 @@ namespace PierreVendOrderTracker.Tests
       string result = newVend.Description;
 
       //Assert
-      Assert.AreEqual(discription, result);
+      Assert.AreEqual( description, result);
     }
   }
 }
