@@ -6,13 +6,13 @@ using System;
 namespace PierreVendOrderTracker.Tests
 {
   [TestClass]
-  public class OrderTests: IDisposable
+  public class OrderTests : IDisposable
   {
     public void Dispose()
     {
       Order.ClearAll();
     }
-    
+
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
@@ -41,7 +41,6 @@ namespace PierreVendOrderTracker.Tests
     {
       //Arrange
       string Title = "bread";
-
       DateTime dt1 = new DateTime();
       Order newOrder = new Order("bread", "desc", 1, dt1);
 
@@ -64,6 +63,26 @@ namespace PierreVendOrderTracker.Tests
 
       // Assert
       CollectionAssert.AreEqual(newList, result);
+    }
+    [TestMethod]
+    public void GetAll_ReturnsOrders_OrderList()
+    {
+      //Arrange
+      string Title1 = "bread";
+      DateTime dt1 = new DateTime();
+      Order newOrder1 = new Order(Title1, "desc", 1, dt1);
+
+      string Title2 = "pastry";
+      DateTime dt2 = new DateTime();
+      Order newOrder2 = new Order(Title2, "desc", 2, dt2);
+
+      List<Order> newOrderList = new List<Order> { newOrder1, newOrder2 };
+
+      //Act
+      List<Order> result = Order.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newOrderList, result);
     }
   }
 }
