@@ -20,7 +20,7 @@ namespace PierreVendOrderTracker.Tests
     {
       //Arrange
       string name = "Test";
-      Vendor newVend = new Vendor(name);
+      Vendor newVend = new Vendor(name, "qwerty");
 
       //Act
       string result = newVend.Name;
