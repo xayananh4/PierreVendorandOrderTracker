@@ -22,13 +22,31 @@ namespace PierreVendOrderTracker.Tests
     {
       //Arrange
       string Title = "bread";
-      
+
       DateTime dt1 = new DateTime();
       Order newOrder = new Order("bread", "desc", 1, dt1);
       string result = newOrder.Title;
 
       //Assert
       Assert.AreEqual(Title, result);
+    }
+
+    [TestMethod]
+    public void SetTitle_SetTitle_String()
+    {
+      //Arrange
+      string Title = "bread";
+
+      DateTime dt1 = new DateTime();
+      Order newOrder = new Order("bread", "desc", 1, dt1);
+
+      //Act
+      string updatedTitle = "pastry";
+      newOrder.Title = updatedTitle;
+      string result = newOrder.Title;
+
+      //Assert
+      Assert.AreEqual(updatedTitle, result);
     }
   }
 }
