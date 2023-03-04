@@ -66,10 +66,10 @@ namespace PierreVendOrderTracker.Tests
     public void GetAll_ReturnsAllVendorObjects_VendorList()
     {
       //Arrange
-      string name01 = "Work";
-      string name02 = "School";
-      string desc01 = "Work";
-      string desc02 = "School";
+      string name01 = "starbucks";
+      string name02 = "coffee";
+      string desc01 = "winco";
+      string desc02 = "sodas";
       Vendor newVendor1 = new Vendor(name01, desc01);
       Vendor newVendor2 = new Vendor(name02, desc02);
       List<Vendor> newListOfVendors = new List<Vendor> { newVendor1, newVendor2 };
@@ -79,6 +79,24 @@ namespace PierreVendOrderTracker.Tests
 
       //Assert
       CollectionAssert.AreEqual(newListOfVendors, result);
+    }
+
+    [TestMethod]
+    public void Find_ReturnsCorrectVendor_Vendor()
+    {
+      //Arrange
+      string name01 = "starbucks";
+      string name02 = "coffee";
+      string desc01 = "winco";
+      string desc02 = "sodas";
+      Vendor newVendor1 = new Vendor(name01, desc01);
+      Vendor newVendor2 = new Vendor(name02, desc02);
+
+      //Act
+      Vendor result = Vendor.Find(2);
+
+      //Assert
+      Assert.AreEqual(newVendor2, result);
     }
   }
 }
