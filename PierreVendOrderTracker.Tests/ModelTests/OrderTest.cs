@@ -6,8 +6,13 @@ using System;
 namespace PierreVendOrderTracker.Tests
 {
   [TestClass]
-  public class OrderTests
+  public class OrderTests: IDisposable
   {
+    public void Dispose()
+    {
+      Vendor.ClearAll();
+    }
+    
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
