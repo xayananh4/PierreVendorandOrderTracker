@@ -20,14 +20,28 @@ namespace PierreVendOrderTracker.Tests
     {
       //Arrange
       string name = "Test";
-      string description = "description";
-      Vendor newVend = new Vendor(name, description);
+      Vendor newVend = new Vendor(name);
 
       //Act
       string result = newVend.Name;
 
       //Assert
       Assert.AreEqual(name, result);
+    }
+
+    [TestMethod]
+    public void GetDescription_ReturnsDescription_String()
+    {
+      //Arrange
+      string name = "Test";
+      string description = "qwertyuiop";
+      Vendor newVend = new Vendor(name, description);
+
+      //Act
+      string result = newVend.Description;
+
+      //Assert
+      Assert.AreEqual(discription, result);
     }
   }
 }
