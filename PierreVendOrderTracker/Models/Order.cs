@@ -9,7 +9,9 @@ namespace PierreVendOrderTracker.Models
     public string Description { get; set; }
     public int Id { get; }
     public int Price { get; set; }
-    DateTime Dt = new DateTime();
+    // DateTime Dt = new DateTime();
+    // [DataType(DataType.Date)]
+    public DateTime Dt { get; set; }
     private static List<Order> _instances = new List<Order> { };
 
     public Order(string title, string description, int price, DateTime dt)
