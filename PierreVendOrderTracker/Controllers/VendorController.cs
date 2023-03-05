@@ -43,19 +43,18 @@ namespace PierreVendOrderTracker.Controllers
     }
 
     [HttpPost("/vendors/{vendorId}/orders")]
-    public ActionResult Create(int VendorId, string OrderDescription)
+    public ActionResult Create(int vendorId, string orderTitle)
     {
-      string title = "bread";
       string description = "dist";
-      DateTime dt1 = new DateTime();
+      DateTime dt = new DateTime(2018, 7, 24);
 
       Dictionary<string, object> model = new Dictionary<string, object>();
-      Vendor foundVendor = Vendor.Find(VendorId);
-      Order newOrder = new Order(title, description, 1, dt1);
+      Vendor foundVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(orderTitle, description, 1, dt);
       foundVendor.AddOrder(newOrder);
       List<Order> VendorOrders = foundVendor.Orders;
-      model.Add("Orders", VendorOrders);
-      model.Add("Vendor", foundVendor);
+      model.Add("orders", VendorOrders);
+      model.Add("vendor", foundVendor);
       return View("Show", model);
     }
 
