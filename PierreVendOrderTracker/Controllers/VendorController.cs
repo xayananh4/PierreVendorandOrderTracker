@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PierreVendOrderTracker.Models;
 using System.Collections.Generic;
+using System;
 
 namespace PierreVendOrderTracker.Controllers
 {
@@ -41,20 +42,24 @@ namespace PierreVendOrderTracker.Controllers
       return View(model);
     }
 
-    // This one creates new order within a Vendor 
-
-    [HttpPost("/categories/{categoryId}/items")]
-    public ActionResult Create(int categoryId, string itemDescription)
+    [HttpPost("/vendors/{vendorId}/orders")]
+    public ActionResult Create(int VendorId, string OrderDescription)
     {
+      string title = "bread";
+      string description = "dist";
+      DateTime dt1 = new DateTime();
+
       Dictionary<string, object> model = new Dictionary<string, object>();
-      Category foundCategory = Category.Find(categoryId);
-      Item newItem = new Item(itemDescription);
-      foundCategory.AddItem(newItem);
-      List<Item> categoryItems = foundCategory.Items;
-      model.Add("items", categoryItems);
-      model.Add("category", foundCategory);
+      Vendor foundVendor = Vendor.Find(VendorId);
+      Order newOrder = new Order(title, description, 1, dt1);
+      foundVendor.AddOrder(newOrder);
+      List<Order> VendorOrders = foundVendor.Orders;
+      model.Add("Orders", VendorOrders);
+      model.Add("Vendor", foundVendor);
       return View("Show", model);
     }
+
+
 
 
 

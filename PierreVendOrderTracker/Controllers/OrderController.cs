@@ -1,15 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
+using PierreVendOrderTracker.Models;
 
-namespace ToDoList.Controllers
+namespace PierreVendOrderTracker.Controllers
 {
-    public class HomeController : Controller
+    public class OrderController : Controller
     {
 
-      [HttpGet("/")]
-      public ActionResult Index()
-      {
-        return View();
-      }
+    [HttpGet("/vendors/{vendorId}/orders/new")]
+    public ActionResult New(int VendorId)
+    {
+      Vendor Vendor = Vendor.Find(VendorId);
+      return View(Vendor);
+    }
 
     }
 }
