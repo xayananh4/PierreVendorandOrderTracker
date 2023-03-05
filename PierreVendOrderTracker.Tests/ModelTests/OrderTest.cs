@@ -42,7 +42,7 @@ namespace PierreVendOrderTracker.Tests
       //Arrange
       string Title = "bread";
       DateTime dt1 = new DateTime();
-      Order newOrder = new Order("bread", "desc", 1, dt1);
+      Order newOrder = new Order(Title, "desc", 1, dt1);
 
       //Act
       string updatedTitle = "pastry";

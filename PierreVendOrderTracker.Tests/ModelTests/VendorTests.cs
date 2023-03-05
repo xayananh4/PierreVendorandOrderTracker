@@ -12,7 +12,7 @@ namespace PierreVendOrderTracker.Tests
     {
       Vendor.ClearAll();
     }
-    
+
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
@@ -98,6 +98,28 @@ namespace PierreVendOrderTracker.Tests
 
       //Assert
       Assert.AreEqual(newVendor2, result);
+    }
+
+    [TestMethod]
+    public void AddOrder_AssociatesOrderWithVendor_OrderList()
+    {
+      //Arrange
+      string Title1 = "bread";
+      DateTime dt1 = new DateTime();
+      Order newOrder1 = new Order(Title1, "desc", 1, dt1);
+
+      List<Order> newList = new List<Order> { newOrder1 };
+      string name = "starbucks";
+      string desc01 = "coffee";
+      Vendor newVendor = new Vendor(name,desc01);
+      
+      newVendor.AddOrder(newOrder1);
+
+      //Act
+      List<Order> result = newVendor.Orders;
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
     }
   }
 }
