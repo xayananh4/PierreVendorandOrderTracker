@@ -14,19 +14,16 @@
   <form action="/vendors/@Model.Id/orders" method="post">
     <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
 
-    <label for="orderTitle">Order title</label>
+    <label for="orderTitle">Order Title</label>
     <input id="orderDescription" name="orderTitle" type="text">
     <label for="orderDescription">Order Description</label>
     <input id="orderDescription" name="orderDescription" type="text">
+    
+    <label for="orderPrice">Order Price</label>
+    <input type="number" min="0.01" step="0.01" max="2500" value="0" />
+
     <input class="datefield" data-val="true" data-val-required="Date is required" id="ReleaseDate" name="ReleaseDate"
       type="date" value="1/11/1989">
-
-
-
-    <label for="orderDescription">order Description</label>
-    <input id="orderDescription" name="orderDescription" type="text">
-
-
 
     <button type='submit'>Add Item</button>
   </form>
