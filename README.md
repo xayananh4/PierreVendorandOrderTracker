@@ -15,10 +15,12 @@ MVC application that allows user(Pierre) to add a vendor to a list and view the 
 * 
 
 # Complete setup/Installation instructions:
-Clone repository to your desktop 
-CD to the Directory/PierreVendorandOrderTracker
-To view mvc web app, cd to PierreVendOrderTracker, enter in commands: dotnet restore, dotnet run
-For testing portion of the project CD to: PierreVendOrderTracker.Tests, command dotnet restore, dotnet test
+* Clone repository to your desktop
+* CD to the Directory/PierreVendorandOrderTracker
+* To view mvc web app, cd to PierreVendOrderTracker, enter in commands: dotnet restore   
+* dotnet run
+* For testing portion of the project CD to: PierreVendOrderTracker.Tests
+* command dotnet restore dotnet test
 
 # Known bugs: 
 No bugs 
