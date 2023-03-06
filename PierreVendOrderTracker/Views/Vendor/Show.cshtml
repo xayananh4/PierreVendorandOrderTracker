@@ -1,31 +1,21 @@
-<!DOCTYPE html>
-<html>
+@{
+  Layout = "_Layout";
+}
+@using PierreVendOrderTracker.Models;
 
-<head>
-  <meta charset="utf-8">
-  <title>Order List!</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-</head>
+<h3>Here are all the orders for: @Model["vendor"].Name</h3>
 
-<body>
-  @using PierreVendOrderTracker.Models;
+<ol>
+  @foreach (Order order in @Model["orders"])
+  {
 
-  <h3>Here are all the orders for this vendor:</h3>
+    <li>@order.Title @order.Description @order.Dt.ToShortDateString() @string.Format("{0:C}", @order.Price)</li>
 
-  <ol>
-    @foreach (Order order in @Model["orders"])
-    {
-      @* <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Title @order.Dt.ToShortDateString()</a></li> *@
-      <li>@order.Title @order.Description @order.Price @order.Dt.ToShortDateString()</li>
+  }
 
-    }
+</ol>
 
-  </ol>
+<p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add a new order</a></p>
+<p><a href='/vendors'>Return to vendor list</a></p>
+<p><a href='/'>Return to Home Page</a></p>
 
-  <p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add a new order</a></p>
-  <p><a href='/vendors'>Return to vendor list</a></p>
-  <p><a href='/'>Return to Home Page</a></p>
-</body>
-
-</html>
